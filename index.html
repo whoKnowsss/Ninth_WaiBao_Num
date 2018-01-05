@@ -1,0 +1,163 @@
+<html>
+
+<head>
+  
+    <title></title>
+</head>
+
+<body>
+    <!-- 题目内容来自如下接口 -->
+    <!-- http://www.fwwb.org.cn/member/select_topic.php?p=A -->
+    <table align="center" border="1">
+        <tr>
+            <th>题目</th>
+            <th>当前选题人数</th>
+        </tr>
+        <tr>
+        	<td>-----------------------------------总人数------------------------------------</td>
+        	<td></td>
+        </tr>
+        <tr>
+            <td>A01：运用AI智能语音能力，创造智慧家庭生活(阿里人工智能)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A02：基于NLP、ASR及TTS技术的智能语音机器人如何在电话服务系统中应用（中科汇联）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A03：客房人体感应系统（电堂科技）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A04：企业合同管理工具（中铠信息）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A05：蓝鸥e家——资源回收O2O平台（蓝鸥科技）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A06：基于DPOS区块链的创新应用（拓朴区块链科技）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A07：基于大数据技术的岗位画像和求职者画像设计（新华三集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A08：用立体视觉技术解决扫地机器人的避障导航误差（轻客智能）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A09：基于AI智慧人脸门禁系统（虹软集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A10：智能外包管理平台（虹软集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A11：单车骑行导航系统（软通动力）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A12：企业知识库管理系统（文思海辉）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A13：基于企业类纠纷裁判文书大数据的企业法律风险诊断系统（中铠信息）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A14：基于CNN的画质增强算法的FPGA设计（虎甲虫计算）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A15：移动互联网用户行为实时分析系统（蓝鸥科技）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A16：验证码识别（浪潮集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A17：非结构化数据处理——文本类（浪潮集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A18：商品名称统一归集问题（阿里巴巴创新中心）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A19：分布式基础管理平台（紫光西部数据）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A20：分布式任务系统（紫光西部数据）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A21：课外阅读智能批注系统（睿泰集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A22：人脑核磁共振影像海马体结构检测与分割（华为）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A23：开发今目标在你身边的使用场景——个人或校园（今目标）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A24：如何解决人脸比对（1:N）中，比对人数（N）的增加识别精度会逐渐降低的问题（华为）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A25：京东众客服在云客服市场的竞争与推广（京东）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A26：人工智能在企业培训中的应用（睿泰集团）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A27：移动会议实时互动系统（文思海辉）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A28：“云智教育”App平台系统（文思海辉）</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>A29：云端企业及行动办公室应用组（睿扬资讯）</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+<script type="text/javascript" src="http://www.w3dev.cn/rardownload/20130106/20130106170832648.js"></script>
+<script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script>
+$(function() {
+    $('table tr').each(function(index) {
+    	stmc='?stmc='+$(this).children().eq(0).text()
+    	if (index == 0) return
+        if (index == 1) stmc=""
+        var a=$(this).children()
+        $.ajax({
+            url: 'http://query.yahooapis.com/v1/public/yql',
+            dataType: 'jsonp',
+            data: {  
+                q: 'select * from json where url="http://www.fwwb.org.cn/member/CountSelect.php'+stmc+'"',
+                format: "json"
+            },
+            success: function(d) {
+                a.eq(1).text(d.query.results.json.count)
+            }
+        });
+        
+    })
+})
+</script>
+
+</html>
