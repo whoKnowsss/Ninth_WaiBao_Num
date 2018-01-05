@@ -1,7 +1,6 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title></title>
 </head>
 
@@ -14,8 +13,12 @@
             <th>当前选题人数</th>
         </tr>
         <tr>
-        	<td>-----------------------------------总人数------------------------------------</td>
-        	<td></td>
+            <td>-------------------------------------总人数--------------------------------------</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>-----------------------------------总已选人数-------------------------------------</td>
+            <td></td>
         </tr>
         <tr>
             <td>A01：运用AI智能语音能力，创造智慧家庭生活(阿里人工智能)</td>
@@ -135,27 +138,36 @@
         </tr>
     </table>
 </body>
-
-<script src="js/jquery-2.2.4.js" ></script>
+<script src="js/jquery-2.2.4.js"></script>
 <script>
 $(function() {
+    all = 0
+    var yixuan
     $('table tr').each(function(index) {
-    	stmc='?stmc='+$(this).children().eq(0).text()
-    	if (index == 0) return
-        if (index == 1) stmc=""
-        var a=$(this).children()
+        stmc = '?stmc=' + $(this).children().eq(0).text()
+        if (index == 0) return
+        if (index == 1) stmc = ""
+        var a = $(this).children()
+        if (index == 2) {
+            yixuan = a.eq(1)
+            return
+        }
+
         $.ajax({
             url: 'http://query.yahooapis.com/v1/public/yql',
             dataType: 'jsonp',
-            data: {  
-                q: 'select * from json where url="http://www.fwwb.org.cn/member/CountSelect.php'+stmc+'"',
+            data: {
+                q: 'select * from json where url="http://www.fwwb.org.cn/member/CountSelect.php' + stmc + '"',
                 format: "json"
             },
             success: function(d) {
                 a.eq(1).text(d.query.results.json.count)
+                if (index!=1)
+                all += parseInt(d.query.results.json.count)
+                yixuan.text(all)
             }
         });
-        
+
     })
 })
 </script>
